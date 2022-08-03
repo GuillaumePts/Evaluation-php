@@ -3,7 +3,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-$zizi=[1,2,3];
-echo "coucou";
+include ('./inc/header.php');
+echo "coucou encore";
+include ('./inc/footer.php');
 
-dump($zizi);
