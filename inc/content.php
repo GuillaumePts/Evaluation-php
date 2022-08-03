@@ -1,15 +1,30 @@
 <div id="content">
 
 <div id="categories">
-    <p>Catégories</p>
-    <a href="">A</a>
-    <a href="">B</a>
-    <a href="">C</a>
-    <a href="">D</a>
-    <a href="">E</a>
+
+   <?php
+
+require('./inc/pdo.php');
+
+$sql = "SELECT * FROM categories";
+global $pdo;
+$query = $pdo->prepare($sql);
+$query->execute();
+$categories = $query->fetchAll();
+
+?>
+
+<p>Categories</p>
+
+<?php foreach($categories as $categorie){?>
+
+
+<a href="index.php?page=categories"><?=$categorie['nom']?></a>
+
+<?php } ;?>
 </div>
 
-<?php
+<?php 
 
 $page = $_GET['page'] ?? "accueil";
 autoInclude($page);
