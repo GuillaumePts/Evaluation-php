@@ -1,9 +1,10 @@
 <?php 
 
 
-require __DIR__ . '/vendor/autoload.php';
 
+require_once ('./inc/function.php');
+require __DIR__ . '/vendor/autoload.php';
 include ('./inc/header.php');
-echo "coucou encore";
+include ('./inc/content.php');
 include ('./inc/footer.php');
 

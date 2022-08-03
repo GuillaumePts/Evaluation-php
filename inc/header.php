@@ -13,15 +13,15 @@
 
         <nav>
             <ul>
-                <li><a href="">Accueil</a></li>
-                <li><a href="">Mentions légales</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Inscription</a></li>
+                <li><a href="index.php?page=accueil">Accueil</a></li>
+                <li><a href="index.php?page=ml">Mentions légales</a></li>
+                <li><a href="index.php?page=contact">Contact</a></li>
+                <li><a href="index.php?page=inscription">Inscription</a></li>
             </ul>
-            <div class="login"><a href="">Connexion</a></div>
+            <div class="login"><a href="index.php?page=connexion">Connexion</a></div>
         </nav>
 
     </header>
-    <div id="content">
+   
 
    
