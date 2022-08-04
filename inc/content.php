@@ -16,12 +16,12 @@ $categories = $query->fetchAll();
 
 <p>Categories</p>
 
-<?php foreach($categories as $categorie){?>
+<?php foreach($categories as $categorie){
 
 
-<a href="index.php?page=categories"><?=$categorie['nom']?></a>
+echo '<a href='.'index.php?page=categories&amp;categorie='.$categorie['nom'].'>'.$categorie['nom'].'</a>';
 
-<?php } ;?>
+ }?>
 </div>
 
 <?php 

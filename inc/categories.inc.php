@@ -1,1 +1,1 @@
-<h2>categorie = </h2>
+<h2>categorie = <?php  echo $_GET['categorie'];?></h2>
