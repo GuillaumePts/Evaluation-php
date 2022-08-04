@@ -16,7 +16,7 @@ global $pdo;
 echo '<h1>'.$lacategorie.'</h1>';
 echo '<h2>Articles</h2>';
 
-    $sql= "SELECT * FROM articles Where categorie = '$lacategorie'";
+    $sql= "SELECT * FROM articles Where categorie = '$lacategorie' AND status = 'visible' ";
    
          global $pdo;
      $query = $pdo->prepare($sql);
