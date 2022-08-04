@@ -12,6 +12,8 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $categories = $query->fetchAll();
 
+
+
 ?>
 
 <p>Categories</p>
