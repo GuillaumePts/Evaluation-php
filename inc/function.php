@@ -15,16 +15,39 @@ function autoInclude(string $file): void {
 }
 
 
-// function pdo() {
-//     try {
-//         $pdo = new PDO('mysql:host=localhost;dbname=blog-php', "root", "", array(
-//             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
-//             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-//             PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
-//         ));
-//         return $pdo;
-//     } catch (PDOException $e) {
-//         echo 'Erreur de connexion : ' . $e->getMessage();
-//         return false;
-//     }
-// }
+function verifierUtilisateur($email) {
+    global $pdo;
+    if ($pdo ) {
+        $sql = "SELECT COUNT(*) FROM users WHERE email='$email'";
+        $reponse = $pdo->query($sql);
+        $nbreLigne = $reponse->fetchColumn();
+        if ($nbreLigne > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+function inscrireUtilisateur(string $nom, string $prenom, string $email, string $mdp): bool {
+    $mdp = password_hash("$mdp", PASSWORD_DEFAULT);
+    ;
+
+    global $pdo;
+    if ($pdo) {
+        $requeteInscription = "INSERT INTO users
+        (nom, prenom, email, mdp)
+        VALUES (:nom, :prenom, :email, :mdp)";
+        $query = $pdo->prepare($requeteInscription);
+        $query->bindValue(':nom', $nom, PDO::PARAM_STR);
+        $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+        $query->bindValue(':email', $email, PDO::PARAM_STR);
+        $query->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+        $query->execute();
+        return true;
+    } else {
+        return false;
+    }
+}
