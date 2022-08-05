@@ -18,10 +18,12 @@ function autoInclude(string $file): void {
 function verifierUtilisateur($email) {
     global $pdo;
     if ($pdo ) {
-        $sql = "SELECT COUNT(*) FROM users WHERE email='$email'";
-        $reponse = $pdo->query($sql);
-        $nbreLigne = $reponse->fetchColumn();
-        if ($nbreLigne > 0) {
+        $sql = "SELECT * FROM users WHERE email='$email'";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $nbreLigne=$query->fetchAll();
+        dump($nbreLigne);
+        if (!empty($nbreLigne)) {
             return true;
         } else {
             return false;
