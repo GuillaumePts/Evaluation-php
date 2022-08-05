@@ -31,20 +31,21 @@ function verifierUtilisateur($email) {
     }
 }
 
-function inscrireUtilisateur(string $nom, string $prenom, string $email, string $mdp): bool {
+function inscrireUtilisateur(string $nom, string $prenom, string $email, string $mdp, string $roles='utilisateur'): bool {
     $mdp = password_hash("$mdp", PASSWORD_DEFAULT);
     ;
 
     global $pdo;
     if ($pdo) {
         $requeteInscription = "INSERT INTO users
-        (nom, prenom, email, mdp)
-        VALUES (:nom, :prenom, :email, :mdp)";
+        (nom, prenom, email, mdp, roles)
+        VALUES (:nom, :prenom, :email, :mdp, :roles)";
         $query = $pdo->prepare($requeteInscription);
         $query->bindValue(':nom', $nom, PDO::PARAM_STR);
         $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
         $query->bindValue(':email', $email, PDO::PARAM_STR);
         $query->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+        $query->bindValue(':roles', $roles, PDO::PARAM_STR);
         $query->execute();
         return true;
     } else {
