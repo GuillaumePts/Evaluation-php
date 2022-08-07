@@ -54,3 +54,34 @@ function inscrireUtilisateur(string $nom, string $prenom, string $email, string 
         return false;
     }
 }
+
+
+
+function verifierLogin($email, $motdepasse) {
+    global $pdo;
+    if ($pdo) {
+        if (verifierUtilisateur($email)) {
+            $recupMdp = "SELECT mdp FROM users WHERE email='$email'";
+            $resultRecupMdp = $pdo->query($recupMdp);
+            $mdpBDD = $resultRecupMdp->fetchAll();
+            $mdpBDD = $mdpBDD[0]['mdp'];
+
+            if (password_verify($motdepasse, $mdpBDD)) 
+                return true;
+            else 
+                return false;
+
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+function verifierAdmin(): bool {
+    if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'] === 'admin') 
+        return true;
+    else
+        return false;
+}
