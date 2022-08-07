@@ -16,7 +16,7 @@
             echo "<p>Bonjour " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . "</p>";
         }
         
-        dump($_SESSION);
+      
         ?>
         <nav>
             <ul>
@@ -30,8 +30,10 @@
                 <?php
                 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
                     echo '<li><a href="index.php?page=deconnexion">Déconnexion</a></li>';
+                    echo '<li><a href="index.php?page=compte">Mon compte</a></li>'; 
                 } else {
-                    echo '<li><a href="index.php?page=connexion">Connexion</a></li>';                    
+                    echo '<li><a href="index.php?page=connexion">Connexion</a></li>';
+                                    
                 }
                 ?>
             </div>

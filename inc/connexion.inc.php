@@ -31,7 +31,7 @@ if (isset($_POST['frmLogin'])) {
 
         echo $messageErreurs;
 
-        require './includes/frmLogin.php';
+        require 'frmconnexion.php';
 
     } else {
         if (verifierLogin($email,$mdp)) {
@@ -43,6 +43,11 @@ if (isset($_POST['frmLogin'])) {
                 $_SESSION['prenom'] = $datasUser[0]['prenom'];
                 $_SESSION['nom'] = $datasUser[0]['nom'];
                 $_SESSION['roles'] = $datasUser[0]['roles'];
+                $_SESSION['mdp'] = $datasUser[0]['mdp'];
+                $_SESSION['email'] = $datasUser[0]['email'];
+                $_SESSION['mobile'] = $datasUser[0]['mobile'];
+                $_SESSION['pseudo'] = $datasUser[0]['pseudo'];
+                $_SESSION['avatar'] = $datasUser[0]['avatar'];
             }
 
             $_SESSION['login'] = true;

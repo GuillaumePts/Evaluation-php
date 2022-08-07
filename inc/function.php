@@ -85,3 +85,9 @@ function verifierAdmin(): bool {
     else
         return false;
 }
+
+function update($element){
+
+
+    $sql="";
+}
