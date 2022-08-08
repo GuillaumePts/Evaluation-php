@@ -2,4 +2,9 @@
 
 <?php
 
-dump($_GET);
+$email = $_SESSION['email'];
+
+if($_GET['edit'] === "pseudo"){
+   
+    dump($email);
+}
