@@ -86,8 +86,3 @@ function verifierAdmin(): bool {
         return false;
 }
 
-function update($element){
-
-
-    $sql="";
-}
