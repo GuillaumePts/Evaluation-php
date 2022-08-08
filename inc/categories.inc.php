@@ -26,9 +26,11 @@ echo '<h2>Articles</h2>';
      if(empty($articles)){
         echo '<p>Aucuns articles dans cette categorie </p> ';
      }else{
+      echo $html = '<div id ='.'articles'.'>';
         foreach($articles as $article){
             dump($article);
         }
+        echo $html .= '</div>';
      }
 
       
