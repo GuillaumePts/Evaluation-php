@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./style-back.css">
     <title>Evaluation-blog</title>
+
     <style>
         *{
             color: var(--mouse-x)
         }
 
-        /* div{
+        /* body{
             background-color: var(--mouse-y);
         } */
     </style>
@@ -19,20 +20,17 @@
 <body>
     <header>
         
-        <h1>Mon titre</h1>
-        <?php
-        if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-            echo "<p>Bonjour " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . "</p>";
-        }
+        <h1>hello admin</h1>
+       
         
       
-        ?>
+      
         <nav>
             <ul>
                 <li><a href="index.php?page=accueil">Accueil</a></li>
                 <li><a href="index.php?page=ml">Mentions légales</a></li>
-                <li><a href="index.php?page=contact">Contact</a></li>
-                <li><a href="index.php?page=inscription">Inscription</a></li>
+                <li><a href="index.php?page=listearticle">articles</a></li>
+                <li><a href="index.php?page=listeuser">useurs</a></li>
             </ul>
             <div class="login">
                 

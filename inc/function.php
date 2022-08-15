@@ -80,9 +80,11 @@ function verifierLogin($email, $motdepasse) {
 }
 
 function verifierAdmin(): bool {
-    if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['role'] === 'admin') 
+    if (isset($_SESSION['login']) && $_SESSION['login'] === true && $_SESSION['roles'] === 'admin') 
         return true;
     else
         return false;
 }
+
+
 
