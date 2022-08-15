@@ -8,7 +8,18 @@
     <title>Evaluation-blog</title>
     <style>
         *{
-            color: var(--mouse-x)
+            color: var(--mouse-x);
+            font-weight: 900;
+            font-family: monospace;
+        
+        }
+
+        p{
+            font-size: 2rem;
+        }
+
+        a{
+            font-size :2rem;
         }
 
         /* div{

@@ -8,13 +8,20 @@
     <title>Evaluation-blog</title>
 
     <style>
-        *{
-            color: var(--mouse-x)
+             *{
+            color: var(--mouse-x);
+            font-weight: 900;
+            font-family: monospace;
+        
         }
 
-        /* body{
-            background-color: var(--mouse-y);
-        } */
+        p{
+            font-size: 2rem;
+        }
+
+        a{
+            font-size :2rem;
+        }
     </style>
 </head>
 <body>
